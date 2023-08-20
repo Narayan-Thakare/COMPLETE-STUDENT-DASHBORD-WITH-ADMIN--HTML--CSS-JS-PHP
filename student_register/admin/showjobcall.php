@@ -1248,7 +1248,7 @@
 
 
                             <!-- ///////////////////////////////////////////////////////////////////////////////// -->
-                            <td class="px-4 py-3 text-sm button-cell">
+                            <!-- <td class="px-4 py-3 text-sm button-cell">
   <a href="\Sammer\student_register\admin\DeleteJobCall.php?id=<?php echo $row["id"]; ?>" class="delete-button">Delete</a>
 </td>
 
@@ -1269,7 +1269,38 @@
   .delete-button {
     background-color: #800080;
   }
+</style> -->
+
+<td class="px-4 py-3 text-sm button-cell">
+  <a href="/Sammer/student_register/admin/DeleteJobCall.php?id=<?php echo $row["id"]; ?>" class="delete-button" onclick="return confirmDelete();">Delete</a>
+</td>
+
+<script>
+function confirmDelete() {
+    const confirmation = confirm('Are you sure you want to delete this item?');
+    return confirmation;
+}
+</script>
+
+<style>
+  .delete-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #800080;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .delete-button:hover {
+    background-color: #600060; /* Darker purple for hover */
+  }
 </style>
+
 
 
  

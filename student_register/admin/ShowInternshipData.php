@@ -41,15 +41,9 @@
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-        $sql = "";
      
-        if(empty($_GET['uname']))
-        $sql = "SELECT * FROM student_admission ORDER BY student_id DESC";
-        else{
-          $sql = "SELECT * FROM student_admission where full_name like'".$_GET['uname']."%'";
-          //echo $sql;
-
-        }
+       
+        $sql = "SELECT * FROM internshipdata";
         $result = $conn->query($sql);
 
   
@@ -66,7 +60,7 @@
         <div class="py-4 text-gray-500 dark:text-gray-400">
           <a
             class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200"
-            href="#"
+            href="\Sammer\student_register\admin\forms.html"
           >
             Admin Dashboard
           </a>
@@ -100,56 +94,13 @@
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
-
-
-                
                   <path
                     d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
                   ></path>
                 </svg>
                 <span class="ml-4">Home</span>
               </a>
-
-
-              
             </li>
-
-
-            
-<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-<!-- 
-<li class="relative px-6 py-3">
-              <span
-                class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
-                aria-hidden="true"
-              ></span>
-              <a
-                class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                href="\Sammer\student_register\admin\showIntern--.php"
-              >
-                <svg
-                  class="w-5 h-5"
-                  aria-hidden="true"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-
-               
-                
-                <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-
-                </svg>
-                <span class="ml-4">show interns</span>
-              </a>
-            </li> 
- -->
-
-
-            <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
           </ul>
           <ul>
             <li class="relative px-6 py-3">
@@ -169,14 +120,11 @@
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                   >
-                    <!-- <path
+                    <path
                       d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
-                    ></path> -->
-
-                    <path d="m10.213 1.471.691-1.26c.046-.083.03-.147-.048-.192-.085-.038-.15-.019-.195.058l-.7 1.27A4.832 4.832 0 0 0 8.005.941c-.688 0-1.34.135-1.956.404l-.7-1.27C5.303 0 5.239-.018 5.154.02c-.078.046-.094.11-.049.193l.691 1.259a4.25 4.25 0 0 0-1.673 1.476A3.697 3.697 0 0 0 3.5 5.02h9c0-.75-.208-1.44-.623-2.072a4.266 4.266 0 0 0-1.664-1.476ZM6.22 3.303a.367.367 0 0 1-.267.11.35.35 0 0 1-.263-.11.366.366 0 0 1-.107-.264.37.37 0 0 1 .107-.265.351.351 0 0 1 .263-.11c.103 0 .193.037.267.11a.36.36 0 0 1 .112.265.36.36 0 0 1-.112.264Zm4.101 0a.351.351 0 0 1-.262.11.366.366 0 0 1-.268-.11.358.358 0 0 1-.112-.264c0-.103.037-.191.112-.265a.367.367 0 0 1 .268-.11c.104 0 .19.037.262.11a.367.367 0 0 1 .107.265c0 .102-.035.19-.107.264ZM3.5 11.77c0 .294.104.544.311.75.208.204.46.307.76.307h.758l.01 2.182c0 .276.097.51.292.703a.961.961 0 0 0 .7.288.973.973 0 0 0 .71-.288.95.95 0 0 0 .292-.703v-2.182h1.343v2.182c0 .276.097.51.292.703a.972.972 0 0 0 .71.288.973.973 0 0 0 .71-.288.95.95 0 0 0 .292-.703v-2.182h.76c.291 0 .54-.103.749-.308.207-.205.311-.455.311-.75V5.365h-9v6.404Zm10.495-6.587a.983.983 0 0 0-.702.278.91.91 0 0 0-.293.685v4.063c0 .271.098.501.293.69a.97.97 0 0 0 .702.284c.28 0 .517-.095.712-.284a.924.924 0 0 0 .293-.69V6.146a.91.91 0 0 0-.293-.685.995.995 0 0 0-.712-.278Zm-12.702.283a.985.985 0 0 1 .712-.283c.273 0 .507.094.702.283a.913.913 0 0 1 .293.68v4.063a.932.932 0 0 1-.288.69.97.97 0 0 1-.707.284.986.986 0 0 1-.712-.284.924.924 0 0 1-.293-.69V6.146c0-.264.098-.491.293-.68Z"/>
-
+                    ></path>
                   </svg>
-                  <span class="ml-4">Intern Section</span>
+                  <span class="ml-4">Add Section</span>
                 </span>
                 <svg
                   class="w-4 h-4"
@@ -221,7 +169,75 @@
                 </ul>
               </template>
             </li>
-<!-- //////////////////////////////////////////////////////////////////////////////////////////////// -->
+            <!-- <li class="relative px-6 py-3">
+              <button
+                class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                @click="togglePagesMenu"
+                aria-haspopup="true"
+              >
+                <span class="inline-flex items-center">
+                  <svg
+                    class="w-5 h-5"
+                    aria-hidden="true"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
+                    ></path>
+                  </svg>
+                  <span class="ml-4">Jobs Alerts</span>
+                </span>
+                <svg
+                  class="w-4 h-4"
+                  aria-hidden="true"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </button>
+              <template x-if="isPagesMenuOpen">
+                <ul
+                  x-transition:enter="transition-all ease-in-out duration-300"
+                  x-transition:enter-start="opacity-25 max-h-0"
+                  x-transition:enter-end="opacity-100 max-h-xl"
+                  x-transition:leave="transition-all ease-in-out duration-300"
+                  x-transition:leave-start="opacity-100 max-h-xl"
+                  x-transition:leave-end="opacity-0 max-h-0"
+                  class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900"
+                  aria-label="submenu"
+                >
+                 
+                  <li
+                    class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                  >
+                    <a class="w-full" href="\Sammer\student_register\admin\addjob.php">
+                      Add Job Calls 
+                    </a>
+                  </li>
+                  <li
+                    class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                  >
+                    <a class="w-full" href="\Sammer\student_register\admin\addintership.php">
+                    Show Job Call
+                    </a>
+                  </li>
+                 
+                </ul>
+              </template>
+            </li> -->
+
+
+            <!-- .....................payment.................... -->
             <li class="relative px-6 py-3" x-data="jobsMenuData()">
   <button
     class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
@@ -286,111 +302,8 @@
     </ul>
   </template>
 </li>
-<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-<li class="relative px-6 py-3" x-data="jobsMenuData()">
-  <button
-    class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-    @click="toggleJobsMenu"
-    aria-haspopup="true"
-  >
-    <span class="inline-flex items-center">
-      <svg
-        class="w-5 h-5"
-        aria-hidden="true"
-        fill="none"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-      <path
-                      d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
-                    ></path>   
-                     </svg>
-      <span class="ml-4">Internship data</span>
-    </span>
-    <svg
-      class="w-4 h-4"
-      aria-hidden="true"
-      fill="currentColor"
-      viewBox="0 0 20 20"
-    >
-    <path
-                    fill-rule="evenodd"
-                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-  </button>
-  <template x-if="isJobsMenuOpen">
-    <ul
-      x-transition:enter="transition-all ease-in-out duration-300"
-      x-transition:enter-start="opacity-25 max-h-0"
-      x-transition:enter-end="opacity-100 max-h-xl"
-      x-transition:leave="transition-all ease-in-out duration-300"
-      x-transition:leave-start="opacity-100 max-h-xl"
-      x-transition:leave-end="opacity-0 max-h-0"
-      class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900"
-      aria-label="submenu"
-    >
-      <li
-        class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-      >
-        <a class="w-full" href="\Sammer\student_register\admin\internshipdataadd.php">
-          Internship Data
-        </a>
-      </li>
-      <li
-        class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-      >
-        <a class="w-full" href="\Sammer\student_register\admin\ShowInternshipData.php">
-          SHOW INTERNSHIP DATA 
-        </a>
-      </li>
-    </ul>
-  </template>
-</li>
-<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
-
-<li class="relative px-6 py-3">
-              <span
-                class="absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg"
-                aria-hidden="true"
-              ></span>
-              <a
-                class="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100"
-                href="\Sammer\student_register\admin\certificate.php"
-              >
-                <svg
-                  class="w-5 h-5"
-                  aria-hidden="true"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-
-
-                
-                  <path
-                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                  ></path>
-                </svg>
-                <span class="ml-4">Certificate</span>
-              </a>
-
-              
-              
-            </li>
-
-
-            <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-            <!-- ..................................... -->
-            <li class="relative px-6 py-3">
+            <!-- <li class="relative px-6 py-3">
               <button
                 class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 @click="togglePagesMenu"
@@ -407,7 +320,7 @@
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                   >
-                    <!-- <path
+                    <path
                       d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
                     ></path>
                   </svg>
@@ -456,12 +369,14 @@
                 </ul>
               </template>
             </li> -->
-<!-- ......................................... -->
-<!-- 
-            <li class="relative px-6 py-3">
+            <!-- .....................payment.................... -->
+
+
+
+            <!-- <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="\Sammer\student_register\admin\pay.php";
+                href="cards.html"
               >
                 <svg
                   class="w-5 h-5"
@@ -472,19 +387,19 @@
                   stroke-width="2"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                >
-                  <path
+                > -->
+                  <!-- <path
                     d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-                  ></path>
+                  ></path> -->
                 </svg>
-                <span class="ml-4">Payment </span>
+                <!-- <span class="ml-4">Cards</span> -->
               </a>
-            </li> -->
-            <li class="relative px-6 py-3">
-              <!-- <a
+            </li>
+            <!-- <li class="relative px-6 py-3">
+              <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 href="charts.html"
-              > -->
+              >
                 <svg
                   class="w-5 h-5"
                   aria-hidden="true"
@@ -494,20 +409,20 @@
                   stroke-width="2"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                >
+                > -->
                   <!-- <path
                     d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"
-                  ></path> -->
-                  <!-- <path d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path> -->
+                  ></path>
+                  <path d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path> -->
                 </svg>
                 <!-- <span class="ml-4">Charts</span> -->
               </a>
             </li>
-            <li class="relative px-6 py-3">
-              <!-- <a
+            <!-- <li class="relative px-6 py-3">
+              <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 href="buttons.html"
-              > -->
+              >
                 <svg
                   class="w-5 h-5"
                   aria-hidden="true"
@@ -517,19 +432,19 @@
                   stroke-width="2"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                >
+                > -->
                   <!-- <path
                     d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
                   ></path> -->
                 </svg>
                 <!-- <span class="ml-4">Buttons</span> -->
               </a>
-            </li>
+            <!-- </li>
             <li class="relative px-6 py-3">
-              <!-- <a
+              <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 href="modals.html"
-              > -->
+              >
                 <svg
                   class="w-5 h-5"
                   aria-hidden="true"
@@ -539,7 +454,7 @@
                   stroke-width="2"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                >
+                > -->
                   <!-- <path
                     d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
                   ></path> -->
@@ -547,16 +462,16 @@
                 <!-- <span class="ml-4">Modals</span> -->
               </a>
             </li>
-            <li class="relative px-6 py-3">
-              <!-- <a
+            <!-- <li class="relative px-6 py-3">
+              <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 href="tables.html"
-              > -->
-                <!-- <svg
+              >
+                <svg
                   class="w-5 h-5"
                   aria-hidden="true"
                   fill="none"
-                  stroke-linecap="round"
+                  stroke-linecap="round"table.html
                   stroke-linejoin="round"
                   stroke-width="2"
                   viewBox="0 0 24 24"
@@ -567,7 +482,7 @@
                 <!-- <span class="ml-4">Tables</span> -->
               </a>
             </li>
-            <li class="relative px-6 py-3">
+            <!-- <li class="relative px-6 py-3">
               <button
                 class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                 @click="togglePagesMenu"
@@ -583,26 +498,26 @@
                     stroke-width="2"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
-                  >
+                  > -->
                     <!-- <path
                       d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
                     ></path> -->
                   </svg>
                   <!-- <span class="ml-4">Pages</span> -->
-                </span>
+                <!-- </span>
                 <svg
                   class="w-4 h-4"
                   aria-hidden="true"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
-                  <!-- <path
+                  <path
                     fill-rule="evenodd"
                     d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                     clip-rule="evenodd"
-                  ></path> -->
+                  ></path>
                 </svg>
-              </button>
+              </button> -->
               <!-- <template x-if="isPagesMenuOpen">
                 <ul
                   x-transition:enter="transition-all ease-in-out duration-300"
@@ -614,21 +529,21 @@
                   class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900"
                   aria-label="submenu"
                 > -->
-                  <li
+                  <!-- <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                  >
+                  > -->
                     <!-- <a class="w-full" href="pages/login.html">Login</a> -->
                   </li>
-                  <li
+                  <!-- <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                  >
+                  > -->
                     <!-- <a class="w-full" href="pages/create-account.html"> -->
                       <!-- Create account -->
                     </a>
                   </li>
-                  <li
+                  <!-- <li
                     class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                  >
+                  > -->
                     <!-- <a class="w-full" href="pages/forgot-password.html"> -->
                       <!-- Forgot password -->
                     </a>
@@ -754,8 +669,6 @@
                 <span class="ml-4">Show Intern</span>
               </a>
             </li>
-
-            <!-- /////////////////////////////////////////////////////////////////////////////////// -->
             <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
@@ -801,25 +714,6 @@
                 <span class="ml-4">Show Job Call</span>
               </a>
             </li>
-            <!-- //////////////////////////////////////////////////////////////////////////////////////////////// -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
             <!-- <li class="relative px-6 py-3">
               <a
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
@@ -955,23 +849,11 @@
         </div>
       </aside>
 
-
-
-
-
-
-      
       <div class="flex flex-col flex-1 w-full">
         <header class="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
           <div
             class="container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300"
           >
-
-
-
-
-
-          
             <!-- Mobile hamburger -->
             <button
               class="p-1 mr-5 -ml-1 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple"
@@ -993,44 +875,61 @@
             </button>
             <!-- Search input -->
             <div class="flex justify-center flex-1 lg:mr-32">
-  <div class="relative w-full max-w-xl mr-6 focus-within:text-purple-500">
-    <form action="index.php" class="flex">
-      <div class="relative flex-1">
-        <div class="absolute inset-y-0 left-0 flex items-center pl-2">
-          <svg
-            class="w-4 h-4"
-            aria-hidden="true"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-              clip-rule="evenodd"
-            ></path>
-          </svg>
-        </div>
-        <input
-          class="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
-          type="text"
-          placeholder="Search for projects"
-          aria-label="Search"
-          name="uname"
-        />
-      </div>
-      <button
-        type="submit"
-        class="px-3 py-1 ml-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
-      >
-        Search
-      </button>
-    </form>
-  </div>
-</div>
+              <div
+                class="relative w-full max-w-xl mr-6 focus-within:text-purple-500"
+              >
+                <div class="absolute inset-y-0 flex items-center pl-2">
+                  <svg
+                    class="w-4 h-4"
+                    aria-hidden="true"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                
+                </div>
+                <form action="index.php">
+                <input
+                  class="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
+                  type="text"
+                  placeholder="Search for projects"
+                  aria-label="Search"
+
+                  name="uname"
+                />
+
+                <!-- <div style="float-right">
+                  <input type="submit"
+                  class="flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple ml-auto"
+                >
+                  <span>Icon right</span>
+                  <svg
+                    class="w-4 h-4 ml-2 -mr-1"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                      clip-rule="evenodd"
+                      fill-rule="evenodd"
+                    ></path>
+                  </svg>
+      </input>
+      </form>
+            </div> -->
 
 
-            <!-- ............................................................ -->
-
+              </div>
+                <div>
+          
+              </div>
+            </div>
             <ul class="flex items-center flex-shrink-0 space-x-6">
               <!-- Theme toggler -->
               <li class="flex">
@@ -1242,11 +1141,13 @@
             <h2
               class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
             >
-             Home Dashboard
-            </h2>
+          JOB CALLS
+
+          </h2>
             <!-- CTA -->
-            <?php
+        <?php
       if ($result === false) {
+        while ($row = $result->fetch_assoc()) {
             ?>
             <a
               class="flex items-center justify-between p-4 mb-8 text-sm font-semibold text-purple-100 bg-purple-600 rounded-lg shadow-md focus:outline-none focus:shadow-outline-purple"
@@ -1268,394 +1169,65 @@
             </a> 
 
             <?php
+        }
           }
           
             ?>
              <!-- Cards -->
-            <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
-              <!-- Card -->
-             <!-- <div
-                class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
-              >
-                <div
-                  class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-500"
-                >
-                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"
-                    ></path>
-                  </svg>
-                </div>
-                <div>
-                  <p
-                    class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
-                  >
-                    Total clients
-                  </p>
-                  <p
-                    class="text-lg font-semibold text-gray-700 dark:text-gray-200"
-                  >
-                    6389
-                  </p>
-                </div>
-              </div> -->
-              <!-- Card -->
-              <!-- <div
-                class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
-              >
-                <div
-                  class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500"
-                >
-                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      fill-rule="evenodd"
-                      d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                </div>
-                <div>
-                  <p
-                    class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
-                  >
-                    Account balance
-                  </p>
-                  <p
-                    class="text-lg font-semibold text-gray-700 dark:text-gray-200"
-                  >
-                    $ 46,760.89
-                  </p>
-                </div>
-              </div> -->
-              <!-- Card -->
-              <!-- <div
-                class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
-              >
-                <div
-                  class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full dark:text-blue-100 dark:bg-blue-500"
-                >
-                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
-                    ></path>
-                  </svg>
-                </div>
-                <div>
-                  <p
-                    class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
-                  >
-                    New sales
-                  </p>
-                  <p
-                    class="text-lg font-semibold text-gray-700 dark:text-gray-200"
-                  >
-                    376
-                  </p>
-                </div>
-              </div> -->
-              <!-- Card -->
-              <!-- <div
-                class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
-              >
-                <div
-                  class="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-teal-500"
-                >
-                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                      fill-rule="evenodd"
-                      d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                </div>
-                <div>
-                  <p
-                    class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
-                  >
-                    Pending contacts
-                  </p>
-                  <p
-                    class="text-lg font-semibold text-gray-700 dark:text-gray-200"
-                  >
-                    35
-                  </p>
-                </div>
-              </div> -->
-            </div>
+             <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
+    <!-- Content for the grid -->
+</div>
 
-            <!-- New Table -->
-            <div class="w-full overflow-hidden rounded-lg shadow-xs">
-              <div class="w-full overflow-x-auto">
-                <table class="w-full whitespace-no-wrap">
-                  <thead>
-                    <tr
-                      class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800"
-                    >
-<th class="px-4 py-3">Name</th>  
-<th class="px-4 py-3">Password</th>
-<th class="px-4 py-3">Edit pass</th>
-<th class="px-4 py-3">total_fees</th>
-<th class="px-4 py-3">paid_fees</th>
-<th class="px-4 py-3">Pay Payment</th>
-<th class="px-4 py-3">Show data</th>
-
-<!-- 
-<th class="px-4 py-3">Gender</th>
-<th class="px-4 py-3">Date OF Birth</th>
-<th class="px-4 py-3">student_number</th>
-<th class="px-4 py-3">parent_number</th>
-<th class="px-4 py-3">address</th>
-<th class="px-4 py-3">city</th>
-<th class="px-4 py-3">pin_code</th>
-<th class="px-4 py-3">work</th>
-<th class="px-4 py-3">College_name</th>
-<th class="px-4 py-3">e_number</th>
-<th class="px-4 py-3">branch</th>
-<th class="px-4 py-3">course</th>
-<th class="px-4 py-3">batch_timing</th>
-<th class="px-4 py-3">tutor_name</th>
-<th class="px-4 py-3">photofile</th>
-<th class="px-4 py-3">docfile</th>
-
-<th class="px-4 py-3">payment_type</th>
-<th class="px-4 py-3">cheque_no</th>
-<th class="px-4 py-3">admission_date</th>
-<th class="px-4 py-3">receipt_number</th> -->
-
-<!-- <th class="px-4 py-3">Certificate</th> -->
-<th class="px-4 py-3">delete</th>
-
-
-                    </tr>
-                  </thead>
-                  <tbody
-                    class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
-                  >
-
-
-
-
-                  
-                  <?php 
-
-                  
-
-                  if ($result->num_rows > 0) {
-
-                    while ($row = $result->fetch_assoc()) {
-                  ?>
-                    <tr class="text-gray-700 dark:text-gray-400">
-                      <td class="px-4 py-3">
-                        <div class="flex items-center text-sm">
-                          <!-- Avatar with inset shadow -->
-                          <div
-                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
-                          >
-                            <img
-                              class="object-cover w-full h-full rounded-full"
-                              src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
-                              alt=""
-                              loading="lazy"
-                            />
-                            <div
-                              class="absolute inset-0 rounded-full shadow-inner"
-                              aria-hidden="true"
-                            ></div>
-                          </div>
-                          <div>
-                            <p class="font-semibold"><?php echo  $row['full_name']?> </p>
-                            <p class="text-xs text-gray-600 dark:text-gray-400">
-                            <?php echo  $row['email']?>
-                            </p>
-                          </div>
-                        </div>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        <?php echo  $row['Password']?>
-                      </td>
-
-                      <!-- <td class="px-4 py-3 text-sm">
-                      <div>
-                      <a href="\Sammer\student_register\admin\password.php?student_id=<?php echo $row["student_id"]; ?>">Edit Pass</a>
-
-              </div> -->
-<!-- ///////////////////////////////////////////////////////////////////// -->
-<td class="px-4 py-3 text-sm">
-  <div>
-    <a href="\Sammer\student_register\admin\password.php?student_id=<?php echo $row["student_id"]; ?>" class="button-link">Edit Password</a>
-  </div>
-</td>
-
-<style>
-  .button-link {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 14px;
-    cursor: pointer;
-  }
-
-  .button-link:hover {
-    background-color: #2980b9;
-  }
-</style>
-
-
-
-
-
-
-
-<!-- /////////////////////////////////////////////////////// -->
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        <?php echo  $row['total_fees']?>
-                      </td>
-                      <!-- ...................... -->
-                      <td class="px-4 py-3 text-sm">
-                        <?php echo  $row['paid_fees']?>
-                      </td>
-<!-- //////////////////////////////////////////////////////////////////////// -->
-
-<td class="px-4 py-3 text-sm button-cell">
-  <div>
-    <a href="\Sammer\student_register\admin\PayShow.php?student_id=<?php echo $row["student_id"]; ?>" class="button-link">Pay</a>
-  </div>
-</td>
-
-<style>
-  .button-link {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 14px;
-    cursor: pointer;
-  }
-
-  .button-link:hover {
-    background-color: #2980b9;
-  }
-</style>
-<!-- /////////////////////////////////////////////////////////////////////////////////////////// -->
-
-<td class="px-4 py-3 text-sm button-cell">
-  <div>
-    <a href="\Sammer\student_register\admin\IdexEdit.php?student_id=<?php echo $row["student_id"]; ?>" class="button-link">Show Data</a>
-  </div>
-</td>
-
-<style>
-  .button-link {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 14px;
-    cursor: pointer;
-  }
-
-  .button-link:hover {
-    background-color: #2980b9;
-  }
-</style>
-
-<!-- ////////////////////////////////////////////////////////////////////////////////////////////// -->
-
-
-<!-- 
-                      <td class="px-4 py-3 text-sm">
-                        <?php echo  $row['gender']?>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        <?php echo  $row['dob']?>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        <?php echo  $row['student_number']?>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        <?php echo  $row['parent_number']?>
-                      </td>
-
-                      <td class="px-4 py-3 text-sm">
-                        <?php echo  $row['address']?>
-                      </td>
-                      
-                      <td class="px-4 py-3 text-sm">
-                        <?php echo  $row['city']?>
-                      </td>
-
-                      <td class="px-4 py-3 text-sm">
-                        <?php echo  $row['pin_code']?>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        <?php echo  $row['work']?>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        <?php echo  $row['c_name']?>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        <?php echo  $row['e_number']?>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        <?php echo  $row['branch']?>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        <?php echo  $row['course']?>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        <?php echo  $row['batch_timing']?>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        <?php echo  $row['tutor_name']?>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        <?php echo  $row['photofile']?>
-                      </td>
-                   ...................... -->
-                      <!-- <td class="px-4 py-3 text-sm">
-                        <?php echo  $row['docfile']?>
-                      </td>
+<!-- New Table -->
+<div class="w-full overflow-hidden rounded-lg shadow-xs">
+    <div class="w-full overflow-x-auto">
+        <table class="w-full whitespace-no-wrap">
+            <thead>
+                <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+                    <th class="px-4 py-3">Developer</th>
+                    <th class="px-4 py-3">Phone</th>
+                    <th class="px-4 py-3">Email</th>
+                    <th class="px-4 py-3">Location</th>
+                    <th class="px-4 py-3">Reasponsibilty</th>
+                    <th class="px-4 py-3">Requirement</th>
+                    <th class="px-4 py-3">Edit</th> 
+                    <th class="px-4 py-3">Delete</th> 
                     
-                      <td class="px-4 py-3 text-sm">
-                        <?php echo  $row['payment_type']?>
-                      </td>
-                     
-                  
-                      <td class="px-4 py-3 text-sm">
-                        <?php echo  $row['cheque_no']?>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        <?php echo  $row['admission_date']?>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        <?php echo  $row['receipt_number']?>
-                      </td> -->
-                       
-<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+                <?php 
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                ?>
+                        
+                            <td class="px-4 py-3 text-sm">
+                                <?php echo $row["developer"]; ?>
+                            </td>
+                            
+                            <td class="px-4 py-3 text-sm">
+                                <?php echo $row["phone"]; ?>
+                            </td>
+                            <td class="px-4 py-3 text-sm">
+                                <?php echo $row["email"]; ?>
+                            </td>
+                            <td class="px-4 py-3 text-sm">
+                                <?php echo $row["location"]; ?>
+                            </td>
+                            <td class="px-4 py-3 text-sm">
+                                <?php echo $row["responsibilitie"]; ?>
+                            </td>
+                            <td class="px-4 py-3 text-sm">
+                                <?php echo $row["requirement"]; ?>
+                            </td>
 
-<!-- 
-<td class="px-4 py-3 text-sm button-cell">
-  <div>
-    <a href="\Sammer\student_register\admin\showcertificate.php?student_id=<?php echo $row["student_id"]; ?>" class="button-link">Show Certificate</a>
-  </div>
+                            <!-- ////////////////////////////////////////////////////////////////////////////////////////////// -->
+                            <td class="px-4 py-3 text-sm button-cell">
+  <a href="\Sammer\student_register\admin\ShowEditInternshipData.php?id=<?php echo $row["id"]; ?>" class="edit-button">Edit</a>
 </td>
 
 <style>
-  .button-link {
+  .edit-button {
     display: inline-block;
     padding: 10px 20px;
     background-color: #3498db;
@@ -1668,36 +1240,23 @@
     cursor: pointer;
   }
 
-  .button-link:hover {
+  .edit-button:hover {
     background-color: #2980b9;
   }
-</style> -->
+</style>
 
-<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-<td class="px-4 py-3 text-sm button-cell">
-  <div>
-    <a href="#" class="button-linkk" onclick="confirmDelete('<?php echo $row["full_name"]; ?>')">Delete</a>
-  </div>
+
+
+                            <!-- ///////////////////////////////////////////////////////////////////////////////// -->
+                            <td class="px-4 py-3 text-sm button-cell">
+  <a href="\Sammer\student_register\admin\DeleteInternshipdata.php?id=<?php echo $row["id"]; ?>" class="delete-button">Delete</a>
 </td>
 
-<script>
-function confirmDelete(fullName) {
-    const confirmation = confirm(`Are you sure you want to delete ${fullName}?`);
-    if (confirmation) {
-        // User clicked "OK" in the confirmation dialog
-        window.location.href = `/Sammer/student_register/admin/indexdelete.php?full_name=${fullName}`;
-     } else {
-        // User clicked "Cancel" in the confirmation dialog
-        // No action needed
-    }
-}
-</script>
-
 <style>
-  .button-linkk {
+  .delete-button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #800080; /* Purple color */
+    background-color: #800080;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -1707,62 +1266,32 @@ function confirmDelete(fullName) {
     cursor: pointer;
   }
 
-  .button-linkk:hover {
-    background-color: #800080; /* Darker purple for hover */
+  .delete-button {
+    background-color: #800080;
   }
 </style>
 
 
-
-
-
-                      
-                      <!-- ///////////////////////////////////////////////////////////////////////////////// -->
-                      <!-- <td class="px-4 py-3 text-sm">
-                      <div>
-                <button
-                  class="px-3 py-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
-                  
-                >
-                  Delete
-                </button>
-              </div>
-                      </td> -->
-
-
-
-                      <!-- ////////////////////////////////////////////////////////////////////////////////////// -->
-                      <!-- <td class="px-4 py-3 text-xs">
-                        <span
-                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
-                        > -->
-                        <!-- <td class="px-4 py-3 text-xs">
-    <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
-       
-    </span>
-</td> -->
-<!-- <td class="px-4 py-3 text-sm">
-<span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"> -->
-
-    
-
-                      <!--  -->
-                    </tr>
-<?php
+ 
+                        </tr>
+                <?php 
                     }
-                  }
+                } else {
+                    // Handle no data scenario
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<?php
+                  
+                
 ?>
                   </tbody>
                 </table>
               </div>
-
-
-
-<!-- .......................... -->
-
-<!-- ........................... -->
-
-
               <div
                 class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800"
               >
@@ -1771,7 +1300,7 @@ function confirmDelete(fullName) {
                 </span>
                 <span class="col-span-2"></span>
                 <!-- Pagination -->
-                <!-- <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
+                <!-- <!-- <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
                   <nav aria-label="Table navigation">
                     <ul class="inline-flex items-center">
                       <li>
@@ -1861,72 +1390,9 @@ function confirmDelete(fullName) {
               </div>
             </div> -->
 
-            <!-- Charts -->
-            <!-- <h2
-              class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
-            >
-              Charts
-            </h2>
-            <div class="grid gap-6 mb-8 md:grid-cols-2">
-              <div
-                class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
-              >
-                <h4 class="mb-4 font-semibold text-gray-800 dark:text-gray-300">
-                  Revenue
-                </h4>
-                <canvas id="pie"></canvas>
-                <div
-                  class="flex justify-center mt-4 space-x-3 text-sm text-gray-600 dark:text-gray-400"
-                >
-                 
-                  <div class="flex items-center">
-                    <span
-                      class="inline-block w-3 h-3 mr-1 bg-blue-500 rounded-full"
-                    ></span>
-                    <span>Shirts</span>
-                  </div>
-                  <div class="flex items-center">
-                    <span
-                      class="inline-block w-3 h-3 mr-1 bg-teal-600 rounded-full"
-                    ></span>
-                    <span>Shoes</span>
-                  </div>
-                  <div class="flex items-center">
-                    <span
-                      class="inline-block w-3 h-3 mr-1 bg-purple-600 rounded-full"
-                    ></span>
-                    <span>Bags</span>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="min-w-0 p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800"
-              >
-                <h4 class="mb-4 font-semibold text-gray-800 dark:text-gray-300">
-                  Traffic
-                </h4>
-                <canvas id="line"></canvas>
-                <div
-                  class="flex justify-center mt-4 space-x-3 text-sm text-gray-600 dark:text-gray-400"
-                >
-                  <div class="flex items-center">
-                    <span
-                      class="inline-block w-3 h-3 mr-1 bg-teal-600 rounded-full"
-                    ></span>
-                    <span>Organic</span>
-                  </div>
-                  <div class="flex items-center">
-                    <span
-                      class="inline-block w-3 h-3 mr-1 bg-purple-600 rounded-full"
-                    ></span>
-                    <span>Paid</span>
-                  </div>
-                </div>
-              </div>
-            </div> -->
+            
 
-
-          </div>
+          <!-- </div>  -->
         </main>
       </div>
     </div>

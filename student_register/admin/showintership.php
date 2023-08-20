@@ -1250,7 +1250,12 @@
           <th class="px-4 py-3">Contact</th>
           <th class="px-4 py-3">Portfolio Website</th>
           <th class="px-4 py-3">Email</th>
+
+          <th class="px-4 py-3">Approvel</th>
+
           <th class="px-4 py-3">Edit</th>
+          <th class="px-4 py-3">Certificate</th>
+
           <th class="px-4 py-3">Delete</th>
 
 <!-- 
@@ -1410,6 +1415,29 @@
                         <?php echo  $row['receipt_number']?>
                       </td> -->
                        <!-- ////////////////////////////////////////////////////////////////////////////////////////////// -->
+                       <td class="px-4 py-3 text-sm button-cell">
+                       <form method="post" action="\Sammer\student_register\admin\mail\mail.php" onsubmit="return confirmAction();">
+    <button type="submit" name="approve" value="<?php echo $row["email"]; ?>">Approve</button>
+    ||
+    <button type="submit" name="reject" value="<?php echo $row["email"]; ?>">Reject</button>
+</form>
+
+<script>
+    function confirmAction() {
+        // Display a confirmation dialog
+        var confirmation = confirm("Are you sure you want to perform this action?");
+        
+        // Return true if the user clicks "OK", or false if they click "Cancel"
+        return confirmation;
+}
+</script>
+
+</td>
+
+
+
+
+                       <!-- /////////////////////////////////////////////////////////////////////////////////////////////////// -->
                       
                        <td class="px-4 py-3 text-sm button-cell">
   <a href="\Sammer\student_register\admin\ShowInternEdit.php?id=<?php echo $row["id"]; ?>" class="edit-button">Edit</a>
@@ -1433,11 +1461,43 @@
     background-color: #2980b9;
   }
 </style>
+<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<td class="px-4 py-3 text-sm button-cell">
+  <a href="\Sammer\student_register\admin\interncertificate.php?id=<?php echo $row["id"]; ?>" class="edit-button">Certificate</a>
+</td>
+
+<style>
+  .edit-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .edit-button:hover {
+    background-color: #2980b9;
+  }
+</style>
 
 <!-- //////////////////////////////////////////////////////////////////////////////////////////// -->
 <td class="px-4 py-3 text-sm button-cell">
-  <a href="\Sammer\student_register\admin\DeleteIntern.php?id=<?php echo $row["id"]; ?>" class="delete-button">Delete</a>
+  <a href="/Sammer/student_register/admin/DeleteIntern.php?id=<?php echo $row["id"]; ?>" class="delete-button" onclick="return confirmDelete();">Delete</a>
 </td>
+
+<script>
+function confirmDelete() {
+    const confirmation = confirm('Are you sure you want to delete this item?');
+    return confirmation;
+}
+</script>
 
 <style>
   .delete-button {
@@ -1453,10 +1513,14 @@
     cursor: pointer;
   }
 
-  .delete-button {
-    background-color: #800080;
+  .delete-button:hover {
+    background-color: #600060; /* Darker purple for hover */
   }
 </style>
+
+
+
+
 
 
           <!-- ////////////////////////////////////////////////////////////////////////////////////////////// -->

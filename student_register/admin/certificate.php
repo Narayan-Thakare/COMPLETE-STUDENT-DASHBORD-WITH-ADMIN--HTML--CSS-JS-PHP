@@ -337,15 +337,15 @@
       <li
         class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
       >
-        <a class="w-full" href="\Sammer\student_register\admin\internshipdataadd.php">
-          Internship Data
+        <a class="w-full" href="\Sammer\student_register\admin\addjob.php">
+          Add Job Calls
         </a>
       </li>
       <li
         class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
       >
-        <a class="w-full" href="\Sammer\student_register\admin\ShowInternshipData.php">
-          SHOW INTERNSHIP DATA 
+        <a class="w-full" href="\Sammer\student_register\admin\showjobcall.php">
+          Show Job Call
         </a>
       </li>
     </ul>
@@ -994,7 +994,7 @@
             <!-- Search input -->
             <div class="flex justify-center flex-1 lg:mr-32">
   <div class="relative w-full max-w-xl mr-6 focus-within:text-purple-500">
-    <form action="index.php" class="flex">
+    <form action="\Sammer\student_register\admin\certificate.php" class="flex">
       <div class="relative flex-1">
         <div class="absolute inset-y-0 left-0 flex items-center pl-2">
           <svg
@@ -1392,12 +1392,14 @@
                       class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800"
                     >
 <th class="px-4 py-3">Name</th>  
-<th class="px-4 py-3">Password</th>
+<th class="px-4 py-3">course</th>
+
+<!-- <th class="px-4 py-3">Password</th>
 <th class="px-4 py-3">Edit pass</th>
 <th class="px-4 py-3">total_fees</th>
 <th class="px-4 py-3">paid_fees</th>
 <th class="px-4 py-3">Pay Payment</th>
-<th class="px-4 py-3">Show data</th>
+<th class="px-4 py-3">Show data</th> -->
 
 <!-- 
 <th class="px-4 py-3">Gender</th>
@@ -1411,7 +1413,6 @@
 <th class="px-4 py-3">College_name</th>
 <th class="px-4 py-3">e_number</th>
 <th class="px-4 py-3">branch</th>
-<th class="px-4 py-3">course</th>
 <th class="px-4 py-3">batch_timing</th>
 <th class="px-4 py-3">tutor_name</th>
 <th class="px-4 py-3">photofile</th>
@@ -1422,8 +1423,8 @@
 <th class="px-4 py-3">admission_date</th>
 <th class="px-4 py-3">receipt_number</th> -->
 
-<!-- <th class="px-4 py-3">Certificate</th> -->
-<th class="px-4 py-3">delete</th>
+<th class="px-4 py-3"> C Certificate</th>
+<!-- <th class="px-4 py-3">delete</th> -->
 
 
                     </tr>
@@ -1470,9 +1471,9 @@
                           </div>
                         </div>
                       </td>
-                      <td class="px-4 py-3 text-sm">
+                      <!-- <td class="px-4 py-3 text-sm">
                         <?php echo  $row['Password']?>
-                      </td>
+                      </td> -->
 
                       <!-- <td class="px-4 py-3 text-sm">
                       <div>
@@ -1480,7 +1481,7 @@
 
               </div> -->
 <!-- ///////////////////////////////////////////////////////////////////// -->
-<td class="px-4 py-3 text-sm">
+<!-- <td class="px-4 py-3 text-sm">
   <div>
     <a href="\Sammer\student_register\admin\password.php?student_id=<?php echo $row["student_id"]; ?>" class="button-link">Edit Password</a>
   </div>
@@ -1503,7 +1504,7 @@
   .button-link:hover {
     background-color: #2980b9;
   }
-</style>
+</style> -->
 
 
 
@@ -1512,17 +1513,17 @@
 
 
 <!-- /////////////////////////////////////////////////////// -->
-                      </td>
+                      <!-- </td>
                       <td class="px-4 py-3 text-sm">
                         <?php echo  $row['total_fees']?>
-                      </td>
+                      </td> -->
                       <!-- ...................... -->
-                      <td class="px-4 py-3 text-sm">
+                      <!-- <td class="px-4 py-3 text-sm">
                         <?php echo  $row['paid_fees']?>
-                      </td>
+                      </td> -->
 <!-- //////////////////////////////////////////////////////////////////////// -->
 
-<td class="px-4 py-3 text-sm button-cell">
+<!-- <td class="px-4 py-3 text-sm button-cell">
   <div>
     <a href="\Sammer\student_register\admin\PayShow.php?student_id=<?php echo $row["student_id"]; ?>" class="button-link">Pay</a>
   </div>
@@ -1545,10 +1546,10 @@
   .button-link:hover {
     background-color: #2980b9;
   }
-</style>
+</style> -->
 <!-- /////////////////////////////////////////////////////////////////////////////////////////// -->
 
-<td class="px-4 py-3 text-sm button-cell">
+<!-- <td class="px-4 py-3 text-sm button-cell">
   <div>
     <a href="\Sammer\student_register\admin\IdexEdit.php?student_id=<?php echo $row["student_id"]; ?>" class="button-link">Show Data</a>
   </div>
@@ -1571,7 +1572,7 @@
   .button-link:hover {
     background-color: #2980b9;
   }
-</style>
+</style> -->
 
 <!-- ////////////////////////////////////////////////////////////////////////////////////////////// -->
 
@@ -1613,9 +1614,7 @@
                       <td class="px-4 py-3 text-sm">
                         <?php echo  $row['branch']?>
                       </td>
-                      <td class="px-4 py-3 text-sm">
-                        <?php echo  $row['course']?>
-                      </td>
+                     
                       <td class="px-4 py-3 text-sm">
                         <?php echo  $row['batch_timing']?>
                       </td>
@@ -1644,10 +1643,14 @@
                       <td class="px-4 py-3 text-sm">
                         <?php echo  $row['receipt_number']?>
                       </td> -->
-                       
+
+                      <!-- ///////////////////////////////////////////////////////////////////////// -->
+                      <td class="px-4 py-3 text-sm">
+                        <?php echo  $row['course']?>
+                      </td>
 <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 
-<!-- 
+
 <td class="px-4 py-3 text-sm button-cell">
   <div>
     <a href="\Sammer\student_register\admin\showcertificate.php?student_id=<?php echo $row["student_id"]; ?>" class="button-link">Show Certificate</a>
@@ -1671,33 +1674,20 @@
   .button-link:hover {
     background-color: #2980b9;
   }
-</style> -->
+</style>
 
 <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-<td class="px-4 py-3 text-sm button-cell">
+<!-- <td class="px-4 py-3 text-sm button-cell">
   <div>
-    <a href="#" class="button-linkk" onclick="confirmDelete('<?php echo $row["full_name"]; ?>')">Delete</a>
+    <a href="\Sammer\student_register\admin\indexdelete.php?full_name=<?php echo $row["full_name"]; ?>" class="button-linkk">Delete</a>
   </div>
 </td>
-
-<script>
-function confirmDelete(fullName) {
-    const confirmation = confirm(`Are you sure you want to delete ${fullName}?`);
-    if (confirmation) {
-        // User clicked "OK" in the confirmation dialog
-        window.location.href = `/Sammer/student_register/admin/indexdelete.php?full_name=${fullName}`;
-     } else {
-        // User clicked "Cancel" in the confirmation dialog
-        // No action needed
-    }
-}
-</script>
 
 <style>
   .button-linkk {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #800080; /* Purple color */
+    background-color: #800080; /* Red color */
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -1708,10 +1698,9 @@ function confirmDelete(fullName) {
   }
 
   .button-linkk:hover {
-    background-color: #800080; /* Darker purple for hover */
+    background-color: #800080; /* Darker red for hover */
   }
-</style>
-
+</style> -->
 
 
 
