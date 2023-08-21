@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone = $_POST['phone'];
     $email = $_POST['email'];
 
-    $sql = "INSERT INTO internship (full_name, portfolio_website, phone, email) 
+    $sql = "INSERT INTO internship (full_name, portfolio_website,phone, email) 
             VALUES ('$full_name', '$portfolio_website', '$phone', '$email')";
 if ($conn->query($sql) === TRUE) {
     header("Location: \Sammer\student_register\admin\showintership.php");

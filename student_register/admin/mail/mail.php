@@ -30,7 +30,7 @@ function sendEmail($recipient, $subject, $message) {
     $mail->SMTPSecure = 'ssl'; // Enable encryption, 'ssl' also accepted
     $mail->Port = 465; // TCP port to connect to
 
-    $mail->setFrom('narayan111thakare@gmail.com', 'Tera Bapp');
+    $mail->setFrom('narayan111thakare@gmail.com', 'Narayan');
     $mail->addAddress($recipient);
     $mail->Subject = $subject;
     $mail->Body = $message;
