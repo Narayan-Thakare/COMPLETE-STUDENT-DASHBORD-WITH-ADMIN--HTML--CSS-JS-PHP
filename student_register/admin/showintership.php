@@ -1590,23 +1590,29 @@
                       </td> -->
                        <!-- ////////////////////////////////////////////////////////////////////////////////////////////// -->
                        <td class="px-4 py-3 text-sm button-cell">
-                       <form method="post" action="\Sammer\student_register\admin\mail\mail.php" onsubmit="return confirmAction();">
-    <button type="submit" name="approve" value="<?php echo $row["email"]; ?>">Approve</button>
-    ||
-    <button type="submit" name="reject" value="<?php echo $row["email"]; ?>">Reject</button>
-</form>
+    <form method="post" action="\Sammer\student_register\admin\mail\mail.php" onsubmit="return confirmAction();">
+        <button type="submit" name="approve" value="<?php echo $row["email"]; ?>"
+            onclick="changeButtonColor(this, 'green')">Approve</button>
+        ||
+        <button type="submit" name="reject" value="<?php echo $row["email"]; ?>">Reject</button>
+    </form>
 
-<script>
-    function confirmAction() {
-        // Display a confirmation dialog
-        var confirmation = confirm("Are you sure you want to perform this action?");
-        
-        // Return true if the user clicks "OK", or false if they click "Cancel"
-        return confirmation;
-}
-</script>
+    <script>
+        function confirmAction() {
+            // Display a confirmation dialog
+            var confirmation = confirm("Are you sure you want to perform this action?");
+            
+            // Return true if the user clicks "OK", or false if they click "Cancel"
+            return confirmation;
+        }
 
+        function changeButtonColor(button, color) {
+            // Change the button's background color to the specified color
+            button.style.backgroundColor = color;
+        }
+    </script>
 </td>
+
 
 
 
